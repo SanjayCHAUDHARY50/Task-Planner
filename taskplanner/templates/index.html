@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+ {% load static %}
+
+{% block title %}
+<title>HomePage - Task Planner </title>
+{% endblock title %}
+
+{% block content %}
+      <div class="container">
+      <div class="b-example-divider"></div>
+
+          <div class="container px-6 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-6 col-lg-6">
+                <img src="{% static 'images\Yellow Cream Retro Activities Personal Planner.png' %}" class=" shadow  bg-body rounded" alt="Bootstrap Themes" width="600" height="500" loading="lazy">
+              </div>
+              <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Task Planner-Plan Your Day</h1>
+                <p class="lead">Quick And Easy To Use, Anytime, Anywhere!</br>Plan Your Day Better, Get your Life Organized</br>Task Planner LetsYou Keep Track Of Your Task In One Place </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                  <a href="{% url 'Todolist' %}"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2 shadow">Let's Get Started</button></a>
+                </div>
+              </div>
+            </div>
+      </div>
+      </div> 
+{% endblock content %}

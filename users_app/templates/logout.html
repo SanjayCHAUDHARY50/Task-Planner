@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load  crispy_forms_tags %}
+
+{% block title %}
+<title>Logout - Task Planner </title>
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container">
+
+      </br>
+
+      {% if messages %}
+        {% for i in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          {{ i }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor%} 
+      {% endif %}
+
+      </br>
+
+      <img src="{% static 'images\logout.gif' %}" class=" shadow  bg-body rounded float-start" alt="Bootstrap Themes" width="600" height="500" loading="lazy">
+      <div class="text-center"> 
+      <h2>Logout From Task-Planner,</h2> 
+      <h4>Thankyou for using it! </h4>
+      </br>
+      <a  href="{% url 'index' %}"><button type="button" class="btn btn-primary">Return to Home page</button></a>
+    </div>
+
+    </div> 
+{% endblock content %}

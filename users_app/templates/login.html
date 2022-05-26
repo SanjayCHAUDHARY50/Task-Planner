@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load  crispy_forms_tags %}
+
+{% block title %}
+<title>Login - Task Planner </title>
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container">
+
+      </br>
+
+      {% if messages %}
+        {% for i in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          {{ i }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor%} 
+      {% endif %}
+
+      <h1>Login On Task-Planner</h1> 
+
+      <img src="{% static 'images\Login.jpg' %}" class=" shadow  bg-body rounded float-end" alt="Bootstrap Themes" width="600" height="500" loading="lazy">
+
+      <form method="POST" class="mt-4 col-6">
+          {% csrf_token %}
+            <div class="row mb-3">
+              {{form.username|as_crispy_field}}
+            </div>
+            <div class="row mb-3">
+                {{form.password|as_crispy_field}}
+              </div>
+          <button type="submit" class="btn btn-primary shadow">Login</button>
+      </form>
+    </br>
+      <p>New to Task-Planner... </p>
+      <a href="{% url 'register' %}"><button type="button" class="btn btn-primary shadow">Register Now</button></a>
+    </div> 
+{% endblock content %}

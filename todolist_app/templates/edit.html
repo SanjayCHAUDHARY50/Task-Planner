@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Edit task - Task Planner </title>
+{% endblock title %}
+
+{% block content %}
+      <div class="container">
+      </br>
+      {% if task_obj.owner == request.user %}
+        <form method="POST">
+
+            {% csrf_token %}
+    
+            <div class="row g-3">
+    
+              <div class="col-md-6">
+                <label>Update Task</label>
+                <input type="text" class="form-control" name = 'task' placeholder="{{ task_obj.task }}" value = "{{ task_obj.task }}" required>
+                <input type="hidden" name = 'done' value = "{{ task_obj.done }}">
+              </div>
+
+              <div class="col-md-4">
+                <label>Status</label>
+                <select class="form-select" name="done" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value = False>Pending</option>
+                  <option value = True>Completed</option>
+                </select>
+              </div>
+    
+              <div class="col-md-2">
+              </br>
+                <button type="submit" class="btn btn-primary">Update Task</button>
+              </div>
+      {% else %}
+        <p> Access Restricted, You are not allowed to change! </p>
+        <a  href="{% url 'Todolist' %}"><button type="button" class="btn btn-primary">Return to previous page</button></a>
+      {% endif%}
+    
+          </div>
+          </form>
+      </div> 
+{% endblock content %}
